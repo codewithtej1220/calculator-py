@@ -1,30 +1,49 @@
-# calculator-py
-Simple calculator program supporting (+, -, *, /, %, **) operations in PYTHON
-## Features
-- Addition (+)
-- Subtraction (-)
-- Multiplication (*)
-- Division (/)
-- Modulus (%)
-- Exponentiation (**)
-- Contines the operation until user quits
-## How to Run
-1. Clone this repository:
-   git clone https://github.com/codewithtej1220/calculator-python.git
-2. Navigate to the project folder:
-   cd calculator-python
-3. Run the program:
-   python calculator.py
-## Usage
-- Enter the operation: +, -, *, /, %, **  
-- Enter the two numbers when prompted  
-- To quit the calculator, type 'q'
-## Sample Output
-Enter choice: *
-Enter first number: 4
-Enter second number: 5
-Result: 20.0
-## Author
-- codewithtej1220
-- LinkedIn: https://linkedin.com/in/bhanuteja-amula-codewithtej1220
-- GitHub: https://github.com/codewithtej1220
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    return x / y if y != 0 else "Error! Division by zero."
+
+def modulus(x, y):
+    return x % y if y != 0 else "Error! Division by zero."
+
+def power(x, y):
+    return x ** y
+
+while True:
+    print("\nSimple Calculator")
+    print("Choose operation: +, -, *, /, %, ** (exponent) or q to quit")
+
+    choice = input("Enter choice: ")
+
+    if choice.lower() == 'q':
+        print("Exiting calculator. Goodbye!")
+        break
+
+    try:
+        a = float(input("Enter first number: "))
+        b = float(input("Enter second number: "))
+    except ValueError:
+        print("Invalid input! Please enter numeric values.")
+        continue
+
+    if choice == '+':
+        print("Result:", add(a, b))
+    elif choice == '-':
+        print("Result:", subtract(a, b))
+    elif choice == '*':
+        print("Result:", multiply(a, b))
+    elif choice == '/':
+        print("Result:", divide(a, b))
+    elif choice == '%':
+        print("Result:", modulus(a, b))
+    elif choice == '**':
+        print("Result:", power(a, b))
+    else:
+        print("Invalid operation! Please choose a valid one.")
